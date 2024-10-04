@@ -1,0 +1,27 @@
+[package]
+version = "0.1.0"
+name = "ecdsa-script"
+edition = "2021"
+default-run = "ecdsa"
+
+[[bin]]
+name = "ecdsa"
+path = "src/bin/main.rs"
+
+[[bin]]
+name = "evm"
+path = "src/bin/evm.rs"
+
+[dependencies]
+sp1-sdk = "2.0.0"
+serde_json = { version = "1.0", default-features = false, features = ["alloc"] }
+serde = { version = "1.0", default-features = false, features = ["derive"] }
+clap = { version = "4.0", features = ["derive", "env"] }
+tracing = "0.1.40"
+hex = "0.4.3"
+alloy-sol-types = { workspace = true }
+secp256k1 = { git = "https://github.com/sp1-patches/rust-secp256k1", branch = "patch-secp256k1-v0.29.0" }
+hashes = { package = "bitcoin_hashes", version = ">= 0.12, <= 0.14", default-features = false }
+
+[build-dependencies]
+sp1-helper = "2.0.0"
